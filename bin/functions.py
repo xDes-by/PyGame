@@ -1,5 +1,5 @@
 from pygame import font, display, draw, mouse
-from precache import screen, carImg_3, BLACK, WIDTH_SCREEN, HEIGHT_SCREEN
+from bin.precache import screen, carImg_3, BLACK, WIDTH_SCREEN, HEIGHT_SCREEN
 
 import time
 

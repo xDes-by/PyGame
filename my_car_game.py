@@ -2,8 +2,8 @@ import sys
 import random
 import pygame
 
-from precache import *
-from functions import text_objects, button, crash, things, things_dodged, car
+from bin.precache import *
+from bin.functions import text_objects, button, crash, things, things_dodged, car
 
 pygame.init()
 
