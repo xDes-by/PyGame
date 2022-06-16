@@ -1,6 +1,7 @@
 import sys
 import random
 import pygame
+import time as game_time
 
 from bin.precache import *
 from bin.functions import text_objects, button, crash, things, things_dodged, car
@@ -28,6 +29,7 @@ def game_intro():
 
 
 def game_loop():
+    start_time = game_time.time()
     x = WIDTH_SCREEN * 0.6
     y = HEIGHT_SCREEN * 0.8
 
@@ -71,19 +73,19 @@ def game_loop():
                     x_2_change = 0
 
         if x > WIDTH_SCREEN - car_width or x < 0:
-            crash()
+            crash(start_time, dodge_thing)
             game_exit = True
         if x_2 > WIDTH_SCREEN - car_width or x_2 < 0:
-            crash()
+            crash(start_time, dodge_thing)
             game_exit = True
 
         if y < thing_start_y + thing_height:
             if thing_start_x < x < thing_start_x + thing_width or thing_start_x < x + car_width < thing_start_x + thing_width:
-                crash()
+                crash(start_time, dodge_thing)
 
         if y_2 < thing_start_y + thing_height:
             if thing_start_x < x_2 < thing_start_x + thing_width or thing_start_x < x_2 + car_width < thing_start_x + thing_width:
-                crash()
+                crash(start_time, dodge_thing)
 
         if thing_start_y > HEIGHT_SCREEN:
             thing_start_y = 0 - thing_height

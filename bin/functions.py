@@ -2,6 +2,7 @@ from pygame import font, display, draw, mouse
 from bin.precache import screen, carImg_3, BLACK, WIDTH_SCREEN, HEIGHT_SCREEN
 
 import time
+from datetime import datetime
 
 
 def things(thing_x, thing_y):
@@ -36,7 +37,12 @@ def things_dodged(count):
     screen.blit(text, (0, 0))
 
 
-def crash():
+def crash(start_time, score):
+    today_date = datetime.now().date()
+    end_time = time.time()
+    total_game_time = round(end_time - start_time)
+    with open("score.txt", 'a') as file:
+        file.write(f"Очков: {score}, Дата игры: {today_date}, Время игры: {total_game_time} секунд \n")
     message_display("Разбился")
 
 
